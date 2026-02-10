@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-02-10T04:00:01Z",
+  "gateway": "active",
+  "gateway_port_listening": true,
+  "disk_percent": 13,
+  "mem_total_mb": 7751,
+  "mem_available_mb": 5806,
+  "load": "0.00 0.00 0.00",
+  "uptime_seconds": 378220,
+  "pending_claude_code_requests": 0,
+  "log_errors_today": 120,
+  "issues": []
+}

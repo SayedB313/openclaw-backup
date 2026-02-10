@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "0df7f274-a508-4068-81d1-a082f2019bc1",
+      "agentId": "operator",
+      "name": "CRON TICK TEST (every 5m)",
+      "enabled": false,
+      "createdAtMs": 1770414071913,
+      "updatedAtMs": 1770414850005,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-02-06T21:54:10.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Cron tick test.\n\nReply with exactly one line:\nCRON_TICK_OK <current UTC time in ISO8601>\n\nThen stop. Do not call any tools.",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1469053934164508765",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1770414850007,
+        "lastStatus": "ok",
+        "lastDurationMs": 5720
+      }
+    },
+    {
+      "id": "d385c279-f655-4a1c-a947-6f1bfbee3d40",
+      "agentId": "operator",
+      "name": "CRON TICK (every 15m, wakeMode=now, announce)",
+      "enabled": false,
+      "createdAtMs": 1770421900956,
+      "updatedAtMs": 1770426850005,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-02-07T01:14:10.000Z"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Reply with exactly one line:\nCRON_15M_TICK_OK <current UTC time in ISO8601>\n\nNo other text. No tools.",
+        "timeoutSeconds": 30
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "discord",
+        "to": "channel:1469053934164508765",
+        "bestEffort": true
+      },
+      "state": {
+        "lastRunAtMs": 1770426850005,
+        "lastStatus": "ok",
+        "lastDurationMs": 15696
+      }
+    },
+    {
+      "id": "4c4aeb33-2623-4485-92e4-05cad9a46679",
+      "agentId": "arki-whatsapp",
+      "name": "Daily Islamic Knowledge Check-in",
+      "enabled": true,
+      "createdAtMs": 1770478935541,
+      "updatedAtMs": 1770638407065,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * *",
+        "tz": "America/Toronto"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "🕌 Daily Islamic Knowledge Check-in\n\nYou're committed to the Master Unlock: daily practice of seeking knowledge (deen) is what opens doors in the dunya.\n\n- What did you study or read today? (Quran, hadith, Islamic lecture, Arabic?)\n- Even a little counts. Log it.\n\nRemember: when the deen is neglected, everything stalls. This is operating principle, not metaphor.",
+        "model": "gemini/gemini-3-flash-preview"
+      },
+      "delivery": {
+        "mode": "announce",
+        "channel": "whatsapp"
+      },
+      "state": {
+        "nextRunAtMs": 1770724800000,
+        "lastRunAtMs": 1770638400015,
+        "lastStatus": "ok",
+        "lastDurationMs": 7050
+      }
+    },
+    {
+      "id": "d1022516-46a9-4c62-90f8-b4205dda4e81",
+      "agentId": "main-agent",
+      "name": "Daily OpenClaw Backup",
+      "enabled": true,
+      "createdAtMs": 1770552811533,
+      "updatedAtMs": 1770609605276,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "America/Toronto"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Run the daily OpenClaw backup: cd /home/openclaw/.openclaw && git add -A && git commit -m 'daily backup $(date +%Y-%m-%d)' && git push origin main. If nothing changed, just note that.",
+        "timeoutSeconds": 120,
+        "model": "gemini/gemini-3-flash-preview"
+      },
+      "delivery": {
+        "mode": "none"
+      },
+      "state": {
+        "nextRunAtMs": 1770696000000,
+        "lastRunAtMs": 1770609600016,
+        "lastStatus": "ok",
+        "lastDurationMs": 5260,
+        "runningAtMs": 1770696000008
+      }
+    }
+  ]
+}

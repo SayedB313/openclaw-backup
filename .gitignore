@@ -1,0 +1,102 @@
+# ============================================
+# SECRETS & CREDENTIALS - NEVER COMMIT
+# ============================================
+.secrets/
+credentials/
+**/.secrets/
+**/credentials/
+**/*secrets*.json
+**/*credentials*.json
+**/*auth*.json
+**/*api_key*
+**/*api_secret*
+**/*private_key*
+
+# ============================================
+# AGENT SESSIONS & RUNTIME STATE
+# ============================================
+**/sessions/
+**/memory/*.sqlite
+*.sqlite
+cron/runs/
+exec-approvals.json
+subagents/runs.json
+update-check.json
+devices/
+
+# ============================================
+# OPENCLAW CONFIG
+# ============================================
+openclaw.json
+openclaw.json.bak*
+agents/*/agent/auth-profiles.json
+agents/*/agent/models.json
+identity/
+
+# ============================================
+# MEDIA & BINARIES
+# ============================================
+media/
+*.log
+**/*.log
+radar.log
+
+# ============================================
+# PYTHON
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv*/
+venv-kraken/
+.venv*/
+ENV/
+env/
+.venv
+.coverage
+.pytest_cache/
+htmlcov/
+
+# ============================================
+# NODE
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-error.log
+yarn-debug.log*
+.cache/
+
+# ============================================
+# IDE & OS
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# TRADING SYSTEM
+# ============================================
+trading-system/reference/*.json
+trading-system/reference/*.md
+!trading-system/reference/README.md

@@ -1,0 +1,74 @@
+{
+  "system": {
+    "name": "Resonance Trading System v3.0",
+    "mode": "paper",
+    "starting_capital": 40.00,
+    "currency": "USD"
+  },
+  "risk": {
+    "max_daily_loss_pct": 0.02,
+    "max_weekly_loss_pct": 0.05,
+    "max_drawdown_warning_pct": 0.05,
+    "max_drawdown_stop_pct": 0.10,
+    "max_drawdown_alert_pct": 0.15,
+    "max_total_exposure_winning": 0.25,
+    "max_total_exposure_learning": 0.10,
+    "consecutive_loss_pause_base": 3,
+    "correlation_threshold": 0.7
+  },
+  "sizing": {
+    "kelly_fraction": 0.25,
+    "first_50_trades_cap": 0.02,
+    "winning_hour_cap": 0.10,
+    "learning_hour_cap": 0.03
+  },
+  "edge": {
+    "min_dissonance": 0.25,
+    "high_conviction_dissonance": 0.35,
+    "min_information_ratio": 0.5,
+    "min_liquidity_score": 3.0,
+    "max_spread_pct": 0.05,
+    "optimal_time_window": [0.55, 0.75],
+    "extended_time_window": [0.45, 0.85]
+  },
+  "time_windows": {
+    "winning_hours": [6, 8, 9, 11, 12, 20, 21],
+    "learning_hours": [7, 10, 18, 23],
+    "danger_hours": [0, 1, 2, 3, 4, 5, 13, 14, 15, 16, 17, 19, 22],
+    "timezone": "America/Toronto"
+  },
+  "signals": {
+    "initial_reliability": {
+      "market_price": 0.85,
+      "news": 0.60,
+      "twitter": 0.45,
+      "onchain": 0.55,
+      "expert": 0.50
+    },
+    "ema_alpha": 0.05
+  },
+  "evolution": {
+    "review_interval_trades": 20,
+    "mutation_range": 0.10,
+    "variants_per_review": 3,
+    "min_sharpe_for_promotion": 0.3,
+    "min_winrate_for_winning_hours": 0.70,
+    "retire_winrate_threshold": 0.60,
+    "min_trades_for_retirement": 50
+  },
+  "models": {
+    "orchestrator": "kimi-k2.5",
+    "analyzer": "deepseek-v3.2",
+    "scouts": {
+      "alpha": {"model": "qwen2.5-vl-3b-instruct", "role": "macro_parser", "endpoint": "http://100.103.223.74:1234"},
+      "beta": {"model": "qwen2.5:3b-instruct-q4_K_M", "role": "coinbase_scanner", "endpoint": "http://100.103.223.74:1234"},
+      "gamma": {"model": "gemma-2-2b-it", "role": "sentiment_classifier", "endpoint": "http://100.103.223.74:1234"}
+    },
+    "kimi": "kimi-2.5-thinking"
+  },
+  "platforms": {
+    "coinbase": {
+      "api_url": "https://api.coinbase.com/api/v3/brokerage"
+    }
+  }
+}

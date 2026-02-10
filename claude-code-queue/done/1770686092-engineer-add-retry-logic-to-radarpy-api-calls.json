@@ -1,0 +1,10 @@
+{
+  "id": "1770686092-engineer-add-retry-logic-to-radarpy-api-calls",
+  "from_agent": "engineer",
+  "priority": "normal",
+  "type": "coding",
+  "created_at": "2026-02-10T01:14:52Z",
+  "summary": "Add retry logic to radar.py API calls",
+  "details": "The radar.py script fails silently when Alpha Vantage API returns 429. Need exponential backoff retry.",
+  "files": ["trading-system/radar.py"]
+}
